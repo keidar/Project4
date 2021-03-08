@@ -2,3 +2,4 @@ flask
 PyMySQL
 python-dotenv
 pathlib
+urllib3
