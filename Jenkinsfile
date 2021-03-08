@@ -106,6 +106,7 @@ pipeline {
                 script {
                     sh 'minikube service testing-keidarb --url > k8s_url.txt'
                 }
+                sleep 30
             }
         }
         stage('write service to url') {
