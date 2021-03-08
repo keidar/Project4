@@ -1,6 +1,15 @@
 import requests
 
-res = requests.get('http://0.0.0.0:5000/users/4444')
+try:
+    f = open("k8s_url.txt", "r")
+    url = f.read()
+    print(url)
+    res = requests.get(f'http://{url}/users/4444')
 
-print(res.json())
+    print(res.json())
+
+except Exception as e:
+    print(e)
+
+
 
