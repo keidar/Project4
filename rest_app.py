@@ -56,6 +56,13 @@ def user(user_id):
         except:
             return {'status': 'error', 'reason': "no such id"}, 500
 
+@app.route('/')
+def health_check():
+    return "200"
+
+@app.route('/hello')
+def hello():
+    return {'status': 'ok', 'user added': 'keidar'}, 201  # status code
 
 def stop_server():
     try:
@@ -65,13 +72,7 @@ def stop_server():
     except:
         return {'status': 'error', 'reason': "didn't manage to close rest app'"}, 500
 
-@app.route('/')
-def health_check():
-    return "200"
 
-@app.route('/hello')
-def hello():
-    return {'status': 'ok', 'user added': 'keidar'}, 201  # status code
 
 
 app.run(host='0.0.0.0', debug=True, port=5000)
