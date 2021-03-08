@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 # Creds
-env_path = Path('') / '.environ'
+env_path = Path('') / 'environ'
 load_dotenv(dotenv_path=env_path)
 db_table = os.environ['DB_TABLE']
 
