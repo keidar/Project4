@@ -97,7 +97,7 @@ pipeline {
          stage('Deploy Helm') {
             steps {
                 script {
-                    sh 'helm upgrade --install keidarb-0.0.1.tgz --set image.tag=${BUILD_NUMBER}'
+                    sh 'helm upgrade --install testing keidarb-0.0.1.tgz --set image.tag=${BUILD_NUMBER}'
                 }
             }
         }
