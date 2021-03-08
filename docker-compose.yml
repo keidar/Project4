@@ -3,5 +3,5 @@ services:
   web:
     image: "keidarb/project3_repo:${BUILD_NUMBER}"
     ports:
-     - "5000:5000"
+     - "5000:5005"
 
