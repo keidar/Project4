@@ -14,7 +14,7 @@ pipeline {
                 script {
                     properties([pipelineTriggers([pollSCM('*/30 * * * *')])])
                 }
-                git 'https://github.com/keidar/Project3.git'
+                git 'https://github.com/keidar/testing.git'
             }
         }
         stage('run rest app server ') {
