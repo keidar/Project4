@@ -65,6 +65,10 @@ def stop_server():
     except:
         return {'status': 'error', 'reason': "didn't manage to close rest app'"}, 500
 
+@app.route('/')
+def health_check():
+    return "200"
+
 @app.route('/hello')
 def hello():
     return {'status': 'ok', 'user added': 'keidar'}, 201  # status code
