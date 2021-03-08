@@ -94,5 +94,33 @@ pipeline {
                 }
             }
         }
+         stage('Deploy Helm') {
+            steps {
+                script {
+                    sh 'helm upgrade --install keidarb-0.0.1.tgz --set image.tag=${BUILD_NUMBER}'
+                }
+            }
+        }
+        stage('Write service to url') {
+            steps {
+                script {
+                    sh 'minikube service testing-keidarb --url > k8s_url.txt'
+                }
+            }
+        }
+        stage('write service to url') {
+            steps {
+                script {
+                    sh 'python k8s_backend_testing.py'
+                }
+            }
+        }
+        stage('Delete Helm chart') {
+            steps {
+                script {
+                    sh 'helm delete testing'
+                }
+            }
+        }
     }
 }
