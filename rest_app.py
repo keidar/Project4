@@ -64,6 +64,7 @@ def health_check():
 def hello():
     return {'status': 'ok', 'user added': 'keidar'}, 201  # status code
 
+@app.route('/stop_server')
 def stop_server():
     try:
         os.kill(os.getpid(), signal.SIGINT)
@@ -75,4 +76,4 @@ def stop_server():
 
 
 
-app.run(host='0.0.0.0', debug=True, port=5000)
+app.run(host='0.0.0.0', port=5000)
